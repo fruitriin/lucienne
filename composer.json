@@ -3,6 +3,7 @@
     "description": "My own framework",
     "type": "library",
     "license": "MIT",
+    "version": "1.0.0",
     "scripts": {
         "test": "phpunit test"
     },
