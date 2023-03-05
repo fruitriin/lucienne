@@ -1,6 +1,6 @@
 <?php
 
-namespace Lucienne;
+namespace FruitRiin\Lucienne;
 
 class HelloWorld
 {
