@@ -9,13 +9,13 @@ class RouterTest extends TestCase
         $_SERVER["REQUEST_URI"] = "/hello/say";
 
         $router = new Router();
-        $this->expectOutputString('\Controllers\helloController', $router->resolvedControllerName);
+        $this->assertEquals('\Controllers\helloController', $router->resolvedControllerName);
     }
 
 
     public function testメソッド名の解決(){
         $_SERVER["REQUEST_URI"] = "/hello/say";
         $router = new Router();
-        $this->expectOutputString('say', $router->resolvedControllerName);
+        $this->assertEquals('say', $router->resolvedMethodName);
     }
 }

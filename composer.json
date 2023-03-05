@@ -3,6 +3,9 @@
     "description": "My own framework",
     "type": "library",
     "license": "MIT",
+    "scripts": {
+        "test": "phpunit test"
+    },
     "autoload": {
         "psr-4": {
             "FruitRiin\\Lucienne\\": "src/"
