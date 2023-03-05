@@ -4,23 +4,20 @@ namespace FruitRiin\Lucienne;
 
 class Router
 {
-    function __construct()
-    {
+    public string $resolvedControllerName;
+    public string $resolvedMethodName;
 
+    function __construct() {
+        $path = $_SERVER["REQUEST_URI"];
+
+        $requests = explode( "/", $path);
+        $this->resolvedControllerName = "\\Controllers\\". $requests[1] . "Controller";
+        $this->resolvedMethodName = end($requests);
     }
 
     function run(): void{
-        $path = $_SERVER["REQUEST_URI"];
-        $method = $_SERVER["REQUEST_METHOD"];
-
-        $requests = explode($path, "/");
-
-        $resolvedControllerName = $requests[0] . "Controller";
-        $resolvedMethodName = end();
-
-        $controller = new $resolvedControllerName($requests);
-
-        $controller->$resolvedMethodName();
+        /** @var $controller BaseController */
+        $controller = new $this->resolvedControllerName();
+        $controller->$this->resolvedMethodName();
     }
-
 }
