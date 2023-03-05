@@ -2,18 +2,19 @@
 
 namespace FruitRiin\Lucienne;
 
-use Slim\Http\Response;
-use Slim\Http\ServerRequest;
 
 class BaseController
 {
-    protected ServerRequest $req ;
+    protected Request $req;
     protected Response $res;
-
-    function __construct()
+    function __construct($router)
     {
-        $this->req = new ServerRequest();
+        $this->req = new Request($router);
         $this->res = new Response();
     }
 
+
 }
+
+
+

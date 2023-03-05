@@ -16,9 +16,9 @@ class Router
         $requests = explode($path, "/");
 
         $resolvedControllerName = $requests[0] . "Controller";
-        $resolvedMethodName = end($requests);
+        $resolvedMethodName = end();
 
-        $controller = new $resolvedControllerName();
+        $controller = new $resolvedControllerName($requests);
 
         $controller->$resolvedMethodName();
     }
